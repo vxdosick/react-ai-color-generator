@@ -1,0 +1,147 @@
+@import 'reset';
+
+
+
+  .wrapper {
+    .header {
+        padding: 30px 0px;
+        .header__container {
+            display: flex;
+            justify-content: center;
+            .header__logo {
+                display: block;
+                font-size: 24px;
+                font-weight: 600;
+                img {
+                    margin-right: 10px;
+                    width: 30px;
+                    height: 30px;
+                }
+                span:nth-child(2) {
+                    color: $text-red;
+                }
+                span:last-child {
+                    color: $text-purple;
+                }
+            }
+        }
+    }
+    .main {
+        .hero {
+            .hero__text {
+                color: $text-purple;
+            }
+        }
+        .scratch {
+            .scratch__decoration {
+                color: $text-red;
+                font-size: 40px;
+                font-weight: 600;
+                display: block;
+                text-align: center;
+            }
+            .scratch__title {
+                text-align: center;
+                color: $text-red;
+            }
+            .scratch__loadingbox {
+                margin-bottom: 20px;
+                margin: 20px 0px;
+                display: flex;
+                justify-content: center;
+                .scratch__loading {
+                    color: $text-purple;
+                    display: inline-flex;
+                    gap: 5px;
+                    font-size: 50px;
+                    font-weight: 700;
+                    span {
+                      animation: bounce 1.2s infinite ease-in-out;
+                      line-height: 50%;
+                      margin-bottom: 15px;
+                    }
+                  
+                    span:nth-child(1) {
+                      animation-delay: 0s;
+                    }
+                  
+                    span:nth-child(2) {
+                      animation-delay: 0.2s;
+                    }
+                  
+                    span:nth-child(3) {
+                      animation-delay: 0.4s;
+                    }
+                  }
+                  
+                  @keyframes bounce {
+                    0%, 100% {
+                      transform: translateY(0);
+                    }
+                    50% {
+                      transform: translateY(-5px);
+                    }
+                  }
+            }
+            .scratch__button {
+              margin: 0 auto;
+            }
+            .scratch__colors {
+                margin-bottom: 30px;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                .scratch__colorslist {
+                    display: flex;
+                    align-items: center;
+                    gap: 30px;
+                    .scratch__color {
+                        > div {
+                            width: 130px;
+                            height: 220px;
+                            border-radius: 8px;
+                            background-color: $text-purple;
+                            margin-bottom: 15px;
+                        }
+                        p {
+                            color: $text-purple;
+                            text-align: center;
+                        }
+                    }
+                    .scratch__addcolor {
+                        button {
+                            width: 130px;
+                            height: 220px;
+                            border-radius: 8px;
+                            background-color: unset;
+                            margin-bottom: 15px;
+                            color: $text-purple;
+                            font-size: 80px;
+                            font-weight: 600;
+                            transition: all 0.3s ease;
+                        }
+                        p {
+                            color: $text-purple;
+                            text-align: center;
+                        }
+                        button:hover {
+                            background-color: $bg-dark;
+                            filter: brightness(1.3);
+                            transform: scale(1.05);
+                        }
+                    }
+                }
+            }
+
+
+
+
+        }
+    }
+    .footer {
+
+    }
+    .footer__container {
+
+    }
+  }
