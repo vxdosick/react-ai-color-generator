@@ -9,7 +9,6 @@ export const TFModel = () => {
   const [model, setModel] = useState<tf.Sequential | null>(null);
   const [trainig, setTraining] = useState(true);
 
-  // Создаём модель
   const createModel = () => {
     const model = tf.sequential();
     model.add(
@@ -19,11 +18,10 @@ export const TFModel = () => {
     model.add(tf.layers.dense({ units: 3, activation: "sigmoid" }));
     model.compile({ optimizer: "adam", loss: "meanSquaredError" });
 
-    console.log("Модель создана:", model.summary());
+    console.log("Model created:", model.summary());
     return model;
   };
 
-  // Обучающие данные (цветовые палитры)
   const trainingData = useColorDataset();
 
   // Функция для обучения модели
@@ -50,7 +48,6 @@ export const TFModel = () => {
     setTraining(false);
   };
 
-  // Создаём и обучаем модель только один раз
   useEffect(() => {
     const newModel = createModel();
     trainModel(newModel).then(() => {
@@ -58,7 +55,6 @@ export const TFModel = () => {
     });
   }, []);
 
-  // Функция для генерации случайного HEX-цвета
   const getRandomColor = (): string => {
     const letters = "0123456789ABCDEF";
     let color = "#";
@@ -68,17 +64,16 @@ export const TFModel = () => {
     return color;
   };
 
-  // Генерация цветовой палитры с использованием модели
   const handleScratchGenerate = async () => {
     if (!model) {
-      console.log("Модель ещё не обучена");
+      console.log("Model training in progress...");
       return;
     }
 
     setScratchLoading(true);
 
     const baseColor: string = getRandomColor();
-    console.log("Базовый цвет:", baseColor);
+    console.log("Base color:", baseColor);
 
     const colorInput: number[] = [Math.random()];
     const inputTensor: tf.Tensor2D = tf.tensor2d(colorInput, [1, 1]);
@@ -86,7 +81,6 @@ export const TFModel = () => {
     const outputTensor = model.predict(inputTensor) as tf.Tensor;
     const outputData = await outputTensor.data();
 
-    // Преобразуем в RGB-цвета
     const generatedColors: string[] = [];
     for (let i = 0; i < 3; i++) {
       const r = Math.floor(outputData[i] * 255)
@@ -138,13 +132,6 @@ export const TFModel = () => {
               {trainig ? (
                 <>
                   <p className="text__normal">The model is still learning ⌛</p>
-                  {/* <div className="scratch__loadingbox">
-                    <span className="scratch__loading">
-                      <span>.</span>
-                      <span>.</span>
-                      <span>.</span>
-                    </span>
-                  </div> */}
                 </>
               ) : (
                 <p className="text__normal">
