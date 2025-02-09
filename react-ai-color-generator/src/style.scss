@@ -3,6 +3,9 @@
 
 
   .wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     .header {
         padding: 30px 0px;
         .header__container {
@@ -12,10 +15,13 @@
                 display: block;
                 font-size: 24px;
                 font-weight: 600;
+                display: flex;
+                align-items: center;
                 img {
                     margin-right: 10px;
-                    width: 30px;
-                    height: 30px;
+                    width: 55px;
+                    height: 55px;
+                    border-radius: 50%;
                 }
                 span:nth-child(2) {
                     color: $text-red;
@@ -27,6 +33,7 @@
         }
     }
     .main {
+        flex-grow: 1;
         .hero {
             .hero__text {
                 color: $text-purple;
@@ -100,7 +107,6 @@
                             width: 130px;
                             height: 220px;
                             border-radius: 8px;
-                            background-color: $text-purple;
                             margin-bottom: 15px;
                         }
                         p {
@@ -133,15 +139,24 @@
                 }
             }
 
-
-
-
         }
     }
     .footer {
-
+        .footer__container {
+            padding: 30px 0px;
+            .footer__logo {
+                img {
+                    display: block;
+                    margin: 0 auto;
+                    width: 55px;
+                    height: 55px;
+                    border-radius: 50%;
+                }
+            }
+        }
     }
-    .footer__container {
+  }
 
-    }
+  .model {
+    color: $text-purple;
   }

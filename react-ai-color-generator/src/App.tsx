@@ -1,10 +1,5 @@
-import { useState } from "react"
+import { TFModel } from "./components/TFModel";
 function App() {
-  const [scratchLoading, setScratchLoading] = useState(false)
-
-  const handleScratchGenerate = () => {
-    setScratchLoading(!scratchLoading)
-  }
 
   return (
     <>
@@ -12,62 +7,39 @@ function App() {
         <header className="header">
           <div className="header__container container">
             <a className="header__logo" href="/">
-              <img src="" alt="Logo" />
-              <span>Color</span>
+              <img src="/logo.webp" alt="Logo" />
+              <span>AIColor</span>
               <span>Generator</span>
             </a>
           </div>
         </header>
-        <main className="main">
+        <main className="main margin__general">
           <section className="hero">
             <div className="hero__container margin__general container">
-              <h3 className="hero__text text__normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit accusantium libero incidunt hic corrupti. Qui corrupti maiores vitae, ea velit harum accusantium sed minus soluta quas consequuntur non laudantium quo.</h3>
+              <h3 className="hero__text text__normal">
+              AIColorGenerator - This is a small web application that creates 4 colors that harmoniously match each other. You can use these colors for any purpose - web sites, applications, games, etc. The generation is done using a simple neural network on ... neuron. The network is trained on more than ... data samples. Let's generate! ❤️
+              </h3>
             </div>
           </section>
           <section className="scratch">
             <div className="scratch__container container">
-              <h2 className="scratch__title text__title">General from Scratch</h2>
-              <div className="scratch__loadingbox">
-              {scratchLoading ? <span className="scratch__loading">
-                <span>.</span>
-                <span>.</span>
-                <span>.</span>
-              </span> : <span className="scratch__decoration">&#8595;</span>}
-              </div>
-              <div className="scratch__colors">
-              <ul className="scratch__colorslist">
-                <li className="scratch__color">
-                  <div></div>
-                  <p className="text__normal">#534234</p>
-                </li>
-                {/* <li className="scratch__color">
-                  <div></div>
-                  <p className="text__normal">#534234</p>
-                </li>
-                <li className="scratch__color">
-                  <div></div>
-                  <p className="text__normal">#534234</p>
-                </li>
-                <li className="scratch__color">
-                  <div></div>
-                  <p className="text__normal">#534234</p>
-                </li> */}
-                <li className="scratch__addcolor">
-                  <button>+</button>
-                  <p className="text__normal">Add Color</p>
-                </li>
-              </ul>
-            </div>
-            <button className="scratch__button button__general" onClick={handleScratchGenerate}>Generate</button>
+              <h2 className="scratch__title text__title">
+                General from Scratch
+              </h2>
+              <TFModel/>
             </div>
           </section>
         </main>
         <footer className="footer">
-          <div className="footer__container container"></div>
+          <div className="footer__container container">
+            <a className="footer__logo" href="/">
+              <img src="/logo.webp" alt="Logo" />
+            </a>
+          </div>
         </footer>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
